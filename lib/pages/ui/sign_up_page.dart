@@ -1,50 +1,55 @@
 part of '../pages.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
-  Widget footer(BuildContext context) {
+  Widget fullName() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        margin: EdgeInsets.only(top: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Don\'t have an account? ',
-              style: subtitleTextStyle,
+              'Full Name',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: regular,
+              ),
             ),
-            GestureDetector(
-              onTap: (){
-                Navigator.pushNamed(context, '/sign-up');
-              },
-              child: Text('Sign Up', style: primaryTextStyle,),
+            const SizedBox(height: 12),
+            Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: backgroundColor4,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/icon_name.png',
+                        width: 30,
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Full Name',
+                          hintStyle: subtitleTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget buttonSubmit(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        width: double.infinity,
-        margin: EdgeInsets.only(top: 30),
-        height: 50,
-        decoration: BoxDecoration(
-          color: primaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/main');
-          },
-          child: Text(
-            'Sign In',
-            style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: medium),
-          ),
         ),
       ),
     );
@@ -107,7 +112,7 @@ class SignInPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        margin: EdgeInsets.only(top: 70),
+        margin: EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -161,7 +166,7 @@ class SignInPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Login',
+            'Register',
             style: primaryTextStyle.copyWith(
               fontSize: 32,
               fontWeight: semiBold,
@@ -169,7 +174,7 @@ class SignInPage extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Text(
-            'Sign In to Continue',
+            'Sign Up to Continue',
             style: subtitleTextStyle.copyWith(
               fontSize: 16,
               fontWeight: regular,
@@ -191,11 +196,9 @@ class SignInPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             header(),
+            fullName(),
             emailInput(),
             passwordInput(),
-            buttonSubmit(context),
-            Spacer(),
-            footer(context),
           ],
         ),
       ),
