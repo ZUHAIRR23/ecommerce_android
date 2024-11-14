@@ -7,7 +7,7 @@ class SignUpPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,6 +50,105 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget userName() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'User Name',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: regular,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: backgroundColor4,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/icon_name.png',
+                        width: 30,
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your User Name',
+                          hintStyle: subtitleTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget footer(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'have an account? ',
+              style: subtitleTextStyle,
+            ),
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/sign-in');
+              },
+              child: Text('Sign In', style: primaryTextStyle,),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buttonSubmit(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 20),
+        height: 50,
+        decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/main');
+          },
+          child: Text(
+            'Sign Up',
+            style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+          ),
         ),
       ),
     );
@@ -112,7 +211,7 @@ class SignUpPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -197,8 +296,12 @@ class SignUpPage extends StatelessWidget {
           children: [
             header(),
             fullName(),
+            userName(),
             emailInput(),
             passwordInput(),
+            buttonSubmit(context),
+            Spacer(),
+            footer(context),
           ],
         ),
       ),
