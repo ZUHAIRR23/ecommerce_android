@@ -25,36 +25,46 @@ class _MainPageState extends State<MainPage> {
       borderRadius: BorderRadius.vertical(
         top: Radius.circular(30),
       ),
-      child: BottomNavigationBar(
-        backgroundColor: backgroundColor4,
-        type: BottomNavigationBarType.fixed,
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icon_home.png', width: 24),
-            label: '',
-            tooltip: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icon_chat.png', width: 24),
-            label: '',
-            tooltip: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icon_wishlist.png', width: 24),
-            label: '',
-            tooltip: 'Wishlist',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icon_profile.png', width: 24),
-            label: '',
-            tooltip: 'Profile',
-          ),
-        ],
+      child: BottomAppBar(
+        height: 80,
+        color: backgroundColor4,
+        notchMargin: 10,
+        shape: CircularNotchedRectangle(),
+        clipBehavior: Clip.antiAlias,
+        child: BottomNavigationBar(
+          backgroundColor: backgroundColor4,
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          showUnselectedLabels: false,
+          showSelectedLabels: false,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icon_home.png', width: 21),
+              label: '',
+              tooltip: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icon_chat.png', width: 20),
+              label: '',
+              tooltip: 'Chat',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icon_wishlist.png', width: 20),
+              label: '',
+              tooltip: 'Wishlist',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icon_profile.png', width: 18),
+              label: '',
+              tooltip: 'Profile',
+            ),
+          ],
+        ),
       ),
     );
   }
