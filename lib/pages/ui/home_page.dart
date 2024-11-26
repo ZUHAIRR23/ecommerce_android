@@ -5,6 +5,39 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget newArrivalProduct(){
+      return Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: defaultMargin
+        ),
+        child: Column(
+          children: [
+            ProductTitle(),
+            ProductTitle(),
+            ProductTitle(),
+            ProductTitle(),
+            ProductTitle(),
+            ProductTitle(),
+          ],
+        ),
+      );
+    }
+
+    Widget newArrivalTitle() {
+      return Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        child: Text(
+          'New Arrival',
+          style: primaryTextStyle.copyWith(
+            fontSize: 22,
+            fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
     Widget popularProduct() {
       return Container(
         margin: EdgeInsets.symmetric(
@@ -196,6 +229,9 @@ class HomePage extends StatelessWidget {
           popularProductTitle(),
           SizedBox(height: 15),
           popularProduct(),
+          SizedBox(height: 15),
+          newArrivalTitle(),
+          newArrivalProduct(),
         ],
       ),
     );
