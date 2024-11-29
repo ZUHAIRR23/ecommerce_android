@@ -12,3 +12,4 @@ part 'ui/main_page.dart';
 part 'ui/wish_list_page.dart';
 part 'ui/chat_page.dart';
 part 'ui/profile_page.dart';
+part 'ui/detail_chat_page.dart';
