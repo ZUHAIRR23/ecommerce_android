@@ -1,7 +1,16 @@
 part of 'widget.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({super.key});
+  const ChatBubble({
+    super.key,
+    this.text = '',
+    this.isSender = false,
+    this.hasProduct = false,
+  });
+
+  final String text;
+  final bool isSender;
+  final bool hasProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -102,26 +111,25 @@ class ChatBubble extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.only(top: 30),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          productPreview(),
+          hasProduct ? productPreview() : SizedBox(),
           Container(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * 0.6,
             ),
             decoration: BoxDecoration(
-              color: backgroundColor5,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(0),
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(0),
-              )
-            ),
+                color: backgroundColor5,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(isSender ? 20 : 0),
+                  topRight: Radius.circular(isSender ? 0 : 20),
+                  bottomLeft: Radius.circular(isSender ? 20 : 0),
+                  bottomRight: Radius.circular(isSender ? 0 : 20),
+                )),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Any Help?',
+                text,
                 style: primaryTextStyle,
               ),
             ),
