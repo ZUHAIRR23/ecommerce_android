@@ -36,24 +36,63 @@ class ProfilePage extends StatelessWidget {
     Widget content() {
       return Expanded(
         child: Container(
+          margin: EdgeInsets.all(12),
           width: double.infinity,
-          margin: EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('assets/image_profile.png'),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Abdurahman Zuhair',
+                          style: primaryTextStyle.copyWith(
+                              fontSize: 20, fontWeight: semiBold),
+                        ),
+                        Text(
+                          'abdurrahman.zuh@gmail.com',
+                          style: secondaryTextStyle.copyWith(
+                              fontSize: 14, fontWeight: regular),
+                        )
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.red,
+                      size: 34,
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 1,
+                color: primaryTextColor,
+              ),
+              SizedBox(height: 10),
               Text(
                 'Account',
                 style: primaryTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: semiBold,
-                ),
+                    fontSize: 16, fontWeight: semiBold),
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
-                    (context),
-                    '/edit-profile',
-                  );
+                  Navigator.pushNamed((context), '/edit-profile');
                 },
                 child: menuItem('Edit Profile'),
               ),
@@ -65,17 +104,17 @@ class ProfilePage extends StatelessWidget {
                 onTap: () {},
                 child: menuItem('Help'),
               ),
-              SizedBox(height: 20),
+              SizedBox(
+                height: 20,
+              ),
               Text(
                 'General',
                 style: primaryTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: semiBold,
-                ),
+                    fontSize: 16, fontWeight: semiBold),
               ),
               GestureDetector(
                 onTap: () {},
-                child: menuItem('Privacy & policy'),
+                child: menuItem('Privacy & Policy'),
               ),
               GestureDetector(
                 onTap: () {},

@@ -5,6 +5,146 @@ class EditProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget buttonUpdate() {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(top: 15),
+          padding: EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 20,
+          ),
+          decoration: BoxDecoration(
+            color: primaryColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Text(
+            'Update',
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+
+    Widget emailInput() {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(top: 15),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          decoration: BoxDecoration(
+            color: backgroundColor4,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: TextFormField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintStyle: primaryTextStyle,
+              hintText: 'abdurrahman.zuh@gmail.com',
+              fillColor: backgroundColor4,
+              filled: true,
+              icon: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+            ),
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: regular,
+              color: Colors.white,
+            ),
+            keyboardType: TextInputType.text,
+          ),
+        ),
+      );
+    }
+
+    Widget userNameInput() {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(top: 15),
+          padding: EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10,
+          ),
+          decoration: BoxDecoration(
+            color: backgroundColor4,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: TextFormField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintStyle: primaryTextStyle,
+              hintText: 'ZUER',
+              fillColor: backgroundColor4,
+              filled: true,
+              icon: Icon(
+                Icons.verified_user,
+                color: Colors.white,
+              ),
+            ),
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: regular,
+              color: Colors.white,
+            ),
+            keyboardType: TextInputType.text,
+          ),
+        ),
+      );
+    }
+
+    Widget nameInput() {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(top: 30),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          decoration: BoxDecoration(
+            color: backgroundColor4,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: TextFormField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintStyle: primaryTextStyle,
+              hintText: 'Abdurahman Zuhair',
+              fillColor: backgroundColor4,
+              filled: true,
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+            ),
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: regular,
+              color: Colors.white,
+            ),
+            keyboardType: TextInputType.text,
+          ),
+        ),
+      );
+    }
+
     Widget content() {
       return Container(
         width: double.infinity,
@@ -24,6 +164,10 @@ class EditProfilePage extends StatelessWidget {
               'Abdurahman Zuhair',
               style: primaryTextStyle,
             ),
+            nameInput(),
+            userNameInput(),
+            emailInput(),
+            buttonUpdate(),
           ],
         ),
       );

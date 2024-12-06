@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage(),
+      home: SplashScreenPage(),
       debugShowCheckedModeBanner: false,
       routes: {
         '/home' : (context) => HomePage(),
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/main' : (context) => MainPage(),
         '/detail-chat' : (context) => DetailChatPage(),
         '/edit-profile' : (context) => EditProfilePage(),
+        '/product' : (context) => ProductPage(),
       },
     );
   }
